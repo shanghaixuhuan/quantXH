@@ -7,10 +7,7 @@ from matplotlib.finance import candlestick_ohlc
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib import dates as mdates
-from matplotlib import ticker as mticker
-import matplotlib.pyplot as plt
 from fetch_data import FETCH
-import numpy as np
 
 
 class MyFigure(FigureCanvas):
@@ -25,7 +22,7 @@ class MyFigure(FigureCanvas):
 
 
 class KlinesDialog(QDialog):
-    def __init__(self, userid):
+    def __init__(self):
         super(KlinesDialog,self).__init__()
         self.initUI()
 
@@ -57,6 +54,6 @@ class KlinesDialog(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    klinesWindow = KlinesDialog("csxuhuan")
+    klinesWindow = KlinesDialog()
     klinesWindow.show()
     sys.exit(app.exec_())

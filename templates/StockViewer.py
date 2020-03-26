@@ -8,9 +8,9 @@ import qdarkstyle
 from fetch_data import FETCH
 
 
-class PetViewer(QDialog):
+class StockViewer(QDialog):
     def __init__(self):
-        super(PetViewer,self).__init__()
+        super(StockViewer,self).__init__()
         self.resize(800,500)
         self.setWindowTitle('QUANT XH 金融终端')
         self.setWindowIcon(QIcon('static/icon.png'))
@@ -200,6 +200,6 @@ class PetViewer(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    petviewerWindow = PetViewer()
-    petviewerWindow.show()
+    stockviewerWindow = StockViewer()
+    stockviewerWindow.show()
     sys.exit(app.exec_())

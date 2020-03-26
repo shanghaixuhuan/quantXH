@@ -21,20 +21,21 @@ class AboutDialog(QDialog):
         self.titlelabel.setPixmap(self.titleimage)
 
         self.textlabel = QLabel(self)
-        self.textlabel.setText("    本宠物找零系统为华东理工大学2016级数据库\n"
-                               "原理课程课程设计，实现对遗失宠物、宠物招领发布、\n"
-                               "宠物收养、查看招领信息等进行统一管理。")
-        self.textlabel.setFont(QFont("苏新诗柳楷繁",15))
+        self.textlabel.setText("    QuantXH是证券投资分析系统，实现从MongoDB\n"
+                               "数据库调取历史股票数据、使用基于PyQt5的前端界\n"
+                               "面实现股票数据可视化、输入多因子选股策略实现回\n"
+                               "测、策略回测结果的展示及分析等多种功能。")
+        self.textlabel.setFont(QFont("仿宋",15))
 
         self.toolslabel = QLabel(self)
-        self.toolslabel.setText("版本号：2 . 0 . 0\n"
-                                "库：PyQt5  数据库：sqlite")
-        self.toolslabel.setFont(QFont("苏新诗柳楷繁", 15))
+        self.toolslabel.setText("数据库：MongoDB  数据源:tushare\n"
+                                "图形界面：PyQt5  回测框架：zipline\n"
+                                "市场分析：TA-Lib")
+        self.toolslabel.setFont(QFont("仿宋", 15))
 
         self.memberslabel = QLabel(self)
-        self.memberslabel.setText("小组成员：计162 徐涣 10161762\n"
-                                  "         计162 盛泽宇 10161768")
-        self.memberslabel.setFont(QFont("苏新诗柳楷繁", 15))
+        self.memberslabel.setText("华东理工大学 徐涣 ( 个人主页：xhhh.fun )")
+        self.memberslabel.setFont(QFont("仿宋", 15))
 
         self.h1box = QHBoxLayout()
         self.h1box.addStretch(1)

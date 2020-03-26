@@ -5,7 +5,8 @@ from templates.SignIn import SignInWidget
 from templates.SignUp import SignUpWidget
 from templates.About import AboutDialog
 from templates.ChangePsw import ChangePswDialog
-from templates.TestKlines import KlinesDialog
+from templates.Klines import KlinesDialog
+from templates.UpdateData import UpdateDataDialog
 import qdarkstyle
 
 
@@ -27,29 +28,24 @@ class MainWindow(QMainWindow):
         self.menu = menubar.addMenu('菜单栏')
         self.menu.setFont(QFont("仿宋", 15))
         self.signupaction = QAction("注    册",self)
-        self.signupaction.setShortcut('Ctrl+U')
         self.signinaction = QAction('登    录',self)
-        self.signinaction.setShortcut('Ctrl+I')
         self.changepswaction = QAction("修改密码", self)
-        self.changepswaction.setShortcut('Ctrl+C')
         self.aboutaction = QAction("关    于",self)
-        self.aboutaction.setShortcut('Ctrl+A')
         self.quitsigninaction = QAction("退出登录",self)
-        self.quitsigninaction.setShortcut('Ctrl+T')
         self.quitaction = QAction("退    出", self)
-        self.quitaction.setShortcut('Ctrl+Q')
+        self.updateaction = QAction("数据更新", self)
         self.menu.addAction(self.signupaction)
         self.menu.addAction(self.signinaction)
         self.menu.addAction(self.changepswaction)
         self.menu.addAction(self.aboutaction)
         self.menu.addAction(self.quitsigninaction)
         self.menu.addAction(self.quitaction)
+        self.menu.addAction(self.updateaction)
         self.signupaction.setEnabled(True)
         self.changepswaction.setEnabled(True)
         self.signinaction.setEnabled(False)
         self.quitsigninaction.setEnabled(False)
 
-        self.widget.is_admin_signal[str].connect(self.adminSignIn)
         self.widget.is_user_signal[str].connect(self.userSignIn)
         self.menu.triggered[QAction].connect(self.menuTriggered)
 
@@ -87,18 +83,14 @@ class MainWindow(QMainWindow):
             aboutDialog = AboutDialog()
             aboutDialog.show()
             aboutDialog.exec_()
+        if (q.text() == "数据更新"):
+            updateDialog = UpdateDataDialog()
+            updateDialog.show()
+            updateDialog.exec_()
         if(q.text() == "退    出"):
             qApp = QApplication.instance()
             qApp.quit()
         return
-
-    def adminSignIn(self,userId):
-        self.widget = AdminHome(userId)
-        self.setCentralWidget(self.widget)
-        self.signupaction.setEnabled(False)
-        self.changepswaction.setEnabled(False)
-        self.signinaction.setEnabled(False)
-        self.quitsigninaction.setEnabled(True)
 
     def userSignIn(self,userId):
         self.widget = KlinesDialog(userId)
