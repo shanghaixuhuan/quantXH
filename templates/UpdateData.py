@@ -27,7 +27,9 @@ class UpdateDataDialog(QDialog):
         self.updatebutton = QPushButton()
         self.updatebutton.setFont(QFont("仿宋", 12))
         self.updatebutton.setText("更新数据")
+        self.updatebutton.clicked.connect(self.updateButtonClicked_before)
         self.updatebutton.clicked.connect(self.updateButtonClicked)
+        self.updatebutton.clicked.connect(self.updateButtonClicked_after)
         self.timelabel = QLabel()
         f = open("./static/local.txt", "r+")
         self.timelabel.setText("上次更新时间："+f.readline())
@@ -65,33 +67,29 @@ class UpdateDataDialog(QDialog):
 
         self.setLayout(self.vbox)
 
-    def updateButtonClicked(self):
+    def updateButtonClicked_before(self):
 
         self.updatebutton.setEnabled(False)
 
-        self.browser.append("开始更新数据……")
-        self.browser.append("正在更新指数日线数据……")
+        self.browser.append("正在更新数据……")
+
+
+    def updateButtonClicked(self):
         QA_SU_save_index_day('tdx')
-        self.browser.append("正在更新指数列表……")
         QA_SU_save_index_list('tdx')
-        self.browser.append("正在更新股票板块……")
         QA_SU_save_stock_block('tdx')
-        self.browser.append("正在更新股票日线数据……")
         QA_SU_save_stock_day('tdx')
-        self.browser.append("开始更新股票信息……")
         QA_SU_save_stock_info('tdx')
-        self.browser.append("开始更新股票列表……")
         QA_SU_save_stock_list('tdx')
-        self.browser.append("开始更新日除权除息数据……")
         QA_SU_save_stock_xdxr('tdx')
+
+    def updateButtonClicked_after(self):
         self.browser.append("更新结束！！")
 
         now = datetime.datetime.now()
         f = open("./static/local.txt", "r+")
         f.write(now.strftime("%Y-%m-%d %H:%M:%S"))
         f.close()
-
-
 
 
 if __name__ == '__main__':

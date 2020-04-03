@@ -6,6 +6,7 @@ from PyQt5.QtGui import QIcon, QFont, QStandardItemModel, QStandardItem
 from PyQt5.QtCore import Qt
 import qdarkstyle
 from fetch_data import FETCH
+from templates.StockInfo import StockInfo
 
 
 class StockViewer(QDialog):
@@ -87,6 +88,7 @@ class StockViewer(QDialog):
         self.detailbutton.setText("详细信息")
         self.detailbutton.setFixedWidth(90)
         self.detailbutton.setFont(QFont("仿宋", 12))
+        self.detailbutton.clicked.connect(self.detailInfo)
 
         self.hbox = QHBoxLayout()
         self.hbox.addWidget(self.currentPageLabel)
@@ -195,6 +197,21 @@ class StockViewer(QDialog):
         self.queryModel.setHeaderData(1, Qt.Horizontal, "股票名称")
         self.pageEdit.setText("")
         return
+
+    def detailInfo(self):
+        index_ = self.tableView.currentIndex().row()
+        if (index_ == -1):
+            print(QMessageBox.warning(self, "警告", "您没有选中任何股票", QMessageBox.Yes, QMessageBox.Yes))
+            return
+        else:
+            code = self.queryModel.data(self.queryModel.index(index_,0))
+            name = self.queryModel.data(self.queryModel.index(index_,1))
+            self.StockInfoDialog(code,name)
+
+    def StockInfoDialog(self,code,name):
+        dialog = StockInfo(code,name)
+        dialog.show()
+        dialog.exec_()
 
 
 if __name__ == '__main__':
