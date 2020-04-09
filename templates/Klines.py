@@ -12,18 +12,18 @@ from fetch_data import FETCH
 
 class MyFigure(FigureCanvas):
     def __init__(self,width=5, height=4, dpi=100):
-        # 创建一个创建Figure
         self.fig = Figure(facecolor="k", figsize=(width, height), dpi=dpi)
-        print(type(self.fig))
-        # 在父类中激活Figure窗口
-        super(MyFigure,self).__init__(self.fig) # 此句必不可少，否则不能显示图形
-        # 创建一个子图，用于绘制图形用，111表示子图编号，如matlab的subplot(1,1,1)
+        super(MyFigure,self).__init__(self.fig)
         self.ax1 = self.fig.add_subplot(1,1,1)
 
 
 class KlinesDialog(QDialog):
-    def __init__(self):
+    def __init__(self, type="index", code="000001", fromtime="2020-01-01", totime="2020-03-01"):
         super(KlinesDialog,self).__init__()
+        self.type = type
+        self.code = code
+        self.fromtime = fromtime
+        self.totime = totime
         self.initUI()
 
     def initUI(self):
@@ -41,7 +41,11 @@ class KlinesDialog(QDialog):
 
     def plotKlines(self):
         f = FETCH()
-        df = f.fetch_index_day("000001","2019-01-01","2019-12-31")
+        if self.type == "index":
+            df = f.fetch_index_day(self.code,self.fromtime,self.totime)
+        elif self.type == "A":
+            df = f.fetch_A_day(self.code,self.fromtime,self.totime)
+
         candlestick_ohlc(self.F.ax1, df, width=.6, colorup='r', colordown='g')
         self.F.ax1.plot()
         self.F.ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
@@ -54,6 +58,6 @@ class KlinesDialog(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    klinesWindow = KlinesDialog()
+    klinesWindow = KlinesDialog(type="A", code="000001", fromtime="2020-01-01", totime="2020-03-01")
     klinesWindow.show()
     sys.exit(app.exec_())

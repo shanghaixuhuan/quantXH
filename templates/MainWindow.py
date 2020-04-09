@@ -5,7 +5,7 @@ from templates.SignIn import SignInWidget
 from templates.SignUp import SignUpWidget
 from templates.About import AboutDialog
 from templates.ChangePsw import ChangePswDialog
-from templates.Klines import KlinesDialog
+from templates.UserHome import UserHome
 from templates.UpdateData import UpdateDataDialog
 import qdarkstyle
 
@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.resize(1000, 800)
+        self.resize(800, 600)
         self.setWindowTitle('QUANT XH 金融终端')
         self.setWindowIcon(QIcon('static/icon.png'))
 
@@ -60,7 +60,6 @@ class MainWindow(QMainWindow):
         if(q.text() == "登    录"):
             self.widget = SignInWidget()
             self.setCentralWidget(self.widget)
-            self.widget.is_admin_signal[str].connect(self.adminSignIn)
             self.widget.is_user_signal[str].connect(self.userSignIn)
             self.signupaction.setEnabled(True)
             self.changepswaction.setEnabled(True)
@@ -69,8 +68,8 @@ class MainWindow(QMainWindow):
         if(q.text() == "退出登录"):
             self.widget = SignInWidget()
             self.setCentralWidget(self.widget)
-            self.widget.is_admin_signal[str].connect(self.adminSignIn)
             self.widget.is_user_signal[str].connect(self.userSignIn)
+            self.resize(800, 600)
             self.signupaction.setEnabled(True)
             self.changepswaction.setEnabled(True)
             self.signinaction.setEnabled(False)
@@ -93,7 +92,7 @@ class MainWindow(QMainWindow):
         return
 
     def userSignIn(self,userId):
-        self.widget = KlinesDialog(userId)
+        self.widget = UserHome(userId)
         self.setCentralWidget(self.widget)
         self.signupaction.setEnabled(False)
         self.changepswaction.setEnabled(False)

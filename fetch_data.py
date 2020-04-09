@@ -56,6 +56,21 @@ class FETCH:
             l.append(li)
         return l
 
+    def fetch_A_day(self, code="000001",start="2020-01-01",end="2020-03-01"):
+        doc = list(self.db.stock_day.find({"code": code, "date": {"$lte": end, "$gte": start}},
+                                          {"_id": 0, "date": 1,"open": 1, "close": 1,"high": 1, "low": 1,"vol": 1}))
+        l = []
+        for i in doc:
+            li = list(i.values())
+            li.insert(0, li[5])
+            dt = datetime.strptime(li[0], "%Y-%m-%d")
+            li[0] = dates.date2num(dt)
+            li.pop()
+            close = li.pop(2)
+            li.insert(4, close)
+            l.append(li)
+        return l
+
     def fetch_stock_info(self, code="000001"):
         cursor = self.db.stock_info.find({"code":code})
         ob = list(list(cursor)[0].values())[1:-1]
@@ -78,5 +93,6 @@ class FETCH:
 
 if __name__ == "__main__":
     f = FETCH()
-    d = f.fetch_stock_info()
-    print(d)
+    l = list(f.fetch_stock_list()['code'])
+    print(type(l))
+    print(l)

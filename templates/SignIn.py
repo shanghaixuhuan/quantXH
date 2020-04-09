@@ -9,7 +9,6 @@ import qdarkstyle
 
 
 class SignInWidget(QWidget):
-    is_admin_signal = pyqtSignal(str)
     is_user_signal = pyqtSignal(str)
 
     def __init__(self):
@@ -103,9 +102,6 @@ class SignInWidget(QWidget):
             print(QMessageBox.information(self, "提示", "用户名并不存在！", QMessageBox.Yes, QMessageBox.Yes))
         else:
             if(id == query.value(0) and hl.hexdigest() == query.value(1)):
-                if(query.value(2) == True):
-                    self.is_admin_signal.emit(id)
-                else:
                     self.is_user_signal.emit(id)
             else:
                 print(QMessageBox.information(self, "提示", "密码错误!", QMessageBox.Yes, QMessageBox.Yes))
