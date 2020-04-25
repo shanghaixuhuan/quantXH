@@ -73,7 +73,6 @@ class UpdateDataDialog(QDialog):
 
         self.browser.append("正在更新数据……")
 
-
     def updateButtonClicked(self):
         QA_SU_save_index_day('tdx')
         QA_SU_save_index_list('tdx')

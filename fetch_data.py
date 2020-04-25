@@ -90,9 +90,26 @@ class FETCH:
                     ob[i] = str(ob[i]//10000) + "万"
         return dict(zip(info_names,ob))
 
+    def fetch_account(self, AC_id = "a20200420201757"):
+        cursor = self.db.account.find({"account_cookie": AC_id})
+        return list(cursor)[0]
+
+    def fetch_risk(self, AC_id = "a20200420201757"):
+        cursor = self.db.risk.find({"account_cookie": AC_id})
+        return list(cursor)[0]
+
+    def fetch_backtest_history(self):
+        cursor = self.db.init.find()
+        df = DataFrame(list(cursor))[["ac_id", "type", "profit", "init_conditions"]]
+        return  df
+
+    def fuzzy_fetch_backtest_history(self, s = "", item = "ac_id"):
+        cursor = self.db.init.find({item:re.compile(s)})
+        df = DataFrame(list(cursor))[["ac_id", "type", "profit", "init_conditions"]]
+        return df
+
 
 if __name__ == "__main__":
     f = FETCH()
-    l = list(f.fetch_stock_list()['code'])
-    print(type(l))
+    l = f.fetch_backtest_history()
     print(l)

@@ -2,8 +2,8 @@ import sys
 from PyQt5.QtWidgets import (QDialog,QHBoxLayout,QLabel,QApplication,QMessageBox,
                              QVBoxLayout,QTextEdit,QDateEdit,QPushButton)
 import qdarkstyle
-from PyQt5.QtGui import QIcon,QPixmap,QFont
-from templates.Klines import KlinesDialog
+from PyQt5.QtGui import QIcon, QFont
+from Klines import KlinesDialog
 from datetime import datetime
 from fetch_data import FETCH
 
