@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import (QDialog,QHBoxLayout,QLabel,QApplication,
 import qdarkstyle
 from PyQt5.QtGui import QIcon,QPixmap,QFont
 from templates.RandomBackTest import RandomBackTest
+from templates.MACDBackTest import MACDBackTest
 
 
 class MainBackTest(QDialog):
@@ -26,6 +27,12 @@ class MainBackTest(QDialog):
         self.randombtn.setFont(QFont("仿宋", 13))
         self.randombtn.clicked.connect(self.RandomBackTestDialog)
 
+        self.MACDbtn = QPushButton()
+        self.MACDbtn.setText("随机买卖回测")
+        self.MACDbtn.setFixedSize(150, 50)
+        self.MACDbtn.setFont(QFont("仿宋", 13))
+        self.MACDbtn.clicked.connect(self.MACDBackTestDialog)
+
         self.comingbtn = QPushButton()
         self.comingbtn.setText("敬请期待")
         self.comingbtn.setFixedSize(150, 50)
@@ -39,7 +46,8 @@ class MainBackTest(QDialog):
 
         self.gridbox = QGridLayout()
         self.gridbox.addWidget(self.randombtn,0,0)
-        self.gridbox.addWidget(self.comingbtn,0,1)
+        self.gridbox.addWidget(self.MACDbtn,0,1)
+        self.gridbox.addWidget(self.comingbtn,0,2)
 
         self.vbox = QVBoxLayout()
         self.vbox.addStretch(1)
@@ -52,6 +60,11 @@ class MainBackTest(QDialog):
 
     def RandomBackTestDialog(self):
         dialog = RandomBackTest()
+        dialog.show()
+        dialog.exec_()
+
+    def MACDBackTestDialog(self):
+        dialog = MACDBackTest()
         dialog.show()
         dialog.exec_()
 

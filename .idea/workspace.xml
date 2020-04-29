@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="675fd138-69b3-414d-a685-4f6dd1df98d4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/random_backtest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/BackTestResult.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/BackTestViewer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/MainBackTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/MultiIndexSelection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/RandomBackTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/MACDBackTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/myPet.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetch_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/KlineSelect.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/KlineSelect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Klines.py" beforeDir="false" afterPath="$PROJECT_DIR$/Klines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/UpdateData.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/UpdateData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/UserHome.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/UserHome.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/random_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/strategies/random_backtest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/MainBackTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/MainBackTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/RandomBackTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/RandomBackTest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,23 +18,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="random_backtest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/random_backtest.py">
+      <file leaf-file-name="QABacktestBroker.py" pinned="false" current-in-tab="false">
+        <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAMarket/QABacktestBroker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="1045">
+              <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MACDBackTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/MACDBackTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2679">
+              <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RandomBackTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/RandomBackTest.py">
+      <file leaf-file-name="MainBackTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="175" column="56" lean-forward="true" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
+            <state relative-caret-position="1102">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -55,8 +54,8 @@
       <file leaf-file-name="BackTestViewer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1748">
-              <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+            <state relative-caret-position="608">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -64,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserHome.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserHome.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/UserHome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="1121">
+              <caret line="68" selection-start-line="68" selection-end-line="68" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -76,25 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChangePsw.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/ChangePsw.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -120,7 +105,7 @@
       <file leaf-file-name="fetch_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fetch_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="1919">
               <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -140,8 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ok</find>
-      <find>cancel</find>
       <find>plotother</find>
       <find>plotsin</find>
       <find>authority</find>
@@ -170,6 +153,8 @@
       <find>historybtn</find>
       <find>backtestbtn</find>
       <find>BackTestViewer</find>
+      <find>amount</find>
+      <find>MACD_JCSC</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,7 +185,6 @@
         <option value="$PROJECT_DIR$/templates/MainWindow.py" />
         <option value="$PROJECT_DIR$/templates/UpdateData.py" />
         <option value="$PROJECT_DIR$/templates/MultiIndexSelection.py" />
-        <option value="$PROJECT_DIR$/templates/MainBackTest.py" />
         <option value="$PROJECT_DIR$/Klines.py" />
         <option value="$PROJECT_DIR$/templates/BackTestResult.py" />
         <option value="$PROJECT_DIR$/templates/RandomBackTest.py" />
@@ -209,14 +193,18 @@
         <option value="$PROJECT_DIR$/random_backtest.py" />
         <option value="$PROJECT_DIR$/templates/BackTestViewer.py" />
         <option value="$PROJECT_DIR$/templates/UserHome.py" />
+        <option value="$PROJECT_DIR$/MACDJCSC_backtest.py" />
+        <option value="$PROJECT_DIR$/templates/MACDBackTest.py" />
+        <option value="$PROJECT_DIR$/templates/MainBackTest.py" />
+        <option value="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
-    <option name="y" value="32" />
-    <option name="width" value="1520" />
-    <option name="height" value="970" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="130" />
+    <option name="y" value="65" />
+    <option name="width" value="1664" />
+    <option name="height" value="950" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -239,6 +227,11 @@
             <path>
               <item name="quantXH" type="b2602c69:ProjectViewProjectNode" />
               <item name="quantXH" type="462c0819:PsiDirectoryNode" />
+              <item name="strategies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="quantXH" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quantXH" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -250,14 +243,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySupportQtDebugging" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\寒假学习\quantXH" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\寒假学习\quantXH\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\寒假学习\quantXH\strategies" />
+      <recent name="F:\寒假学习\quantXH" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -272,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.UserHome">
+  <component name="RunManager" selected="Python.main">
     <configuration name="BackTestViewer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -291,7 +288,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="RandomBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MACDBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -303,13 +300,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/RandomBackTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/MACDBackTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="StockViewer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MACDJCSC_backtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,17 +314,17 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/templates" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/strategies" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/StockViewer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="UserHome" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MainBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -339,7 +336,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/UserHome.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/MainBackTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -364,19 +361,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.StockViewer" />
       <item itemvalue="Python.BackTestViewer" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.UserHome" />
-      <item itemvalue="Python.RandomBackTest" />
+      <item itemvalue="Python.MACDJCSC_backtest" />
+      <item itemvalue="Python.MACDBackTest" />
+      <item itemvalue="Python.MainBackTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.UserHome" />
-        <item itemvalue="Python.BackTestViewer" />
-        <item itemvalue="Python.RandomBackTest" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.StockViewer" />
+        <item itemvalue="Python.MainBackTest" />
+        <item itemvalue="Python.MACDBackTest" />
+        <item itemvalue="Python.BackTestViewer" />
+        <item itemvalue="Python.MACDJCSC_backtest" />
       </list>
     </recent_temporary>
   </component>
@@ -435,18 +432,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="26" width="1216" height="776" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2635593" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20541611" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294964" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009804" side_tool="true" weight="0.4871795" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4990196" weight="0.3364632" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502045" side_tool="true" weight="0.3364632" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3294964" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3294964" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49795502" weight="0.3352354" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32789856" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31768388" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32707354" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.31768388" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -468,19 +466,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/internals/managers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Klines.py" />
-    <entry file="file://$PROJECT_DIR$/draw.py" />
     <entry file="file://G:/Anaconda3/Lib/site-packages/qdarkstyle/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2905">
@@ -635,16 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/KlineSelect.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1653">
@@ -726,9 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="e#15#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,34 +715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/random_backtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/StockViewer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="197" column="33" lean-forward="true" selection-start-line="197" selection-start-column="33" selection-end-line="197" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -777,19 +729,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/RandomBackTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="175" column="56" lean-forward="true" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fetch_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="1919">
           <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -797,26 +739,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ChangePsw.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
+    <entry file="file://$PROJECT_DIR$/templates/UserHome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="92" column="33" lean-forward="true" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+        <state relative-caret-position="1121">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/UserHome.py">
+    <entry file="file://$PROJECT_DIR$/update_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="228">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/RandomBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/random_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="76" column="35" lean-forward="true" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/MACDJCSC_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="67" column="100" lean-forward="true" selection-start-line="67" selection-start-column="100" selection-end-line="67" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAMarket/QABacktestBroker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/MACDBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2679">
+          <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

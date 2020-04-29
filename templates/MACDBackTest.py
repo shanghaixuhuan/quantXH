@@ -6,14 +6,14 @@ import qdarkstyle
 from PyQt5.QtGui import QIcon, QFont
 from datetime import datetime
 from fetch_data import FETCH
-from strategies.random_backtest import RBTest
+from strategies.MACDJCSC_backtest import MACDTest
 from templates.BackTestResult import BackTestResult
 from PyQt5.QtCore import Qt
 
 
-class RandomBackTest(QDialog):
+class MACDBackTest(QDialog):
     def __init__(self):
-        super(RandomBackTest,self).__init__()
+        super(MACDBackTest,self).__init__()
         self.codepool = ["000001","000002","000004",]
         self.initUI()
 
@@ -42,23 +42,63 @@ class RandomBackTest(QDialog):
         self.pooltb.setFixedSize(300, 300)
         self.pooltb.setFont(QFont("仿宋", 12))
 
-        self.fromtimelabel = QLabel()
-        self.fromtimelabel.setText("开始时间")
-        self.fromtimelabel.setFont(QFont("仿宋", 15))
-        self.fromtimeedit = QDateEdit()
-        datefrom = datetime.strptime("2019-01-01", "%Y-%m-%d").date()
-        self.fromtimeedit.setDate(datefrom)
-        self.fromtimeedit.setFont(QFont("仿宋", 12))
-        self.fromtimeedit.setFixedSize(200,30)
+        self.shortlabel = QLabel()
+        self.shortlabel.setText("SHORT")
+        self.shortlabel.setFont(QFont("仿宋", 15))
+        self.shortedit = QTextEdit()
+        self.shortedit.setText("12")
+        self.shortedit.setFont(QFont("仿宋", 12))
+        self.shortedit.setFixedSize(50, 30)
+        self.longlabel = QLabel()
+        self.longlabel.setText("LONG")
+        self.longlabel.setFont(QFont("仿宋", 15))
+        self.longedit = QTextEdit()
+        self.longedit.setText("26")
+        self.longedit.setFont(QFont("仿宋", 12))
+        self.longedit.setFixedSize(50, 30)
+        self.mlabel = QLabel()
+        self.mlabel.setText("M")
+        self.mlabel.setFont(QFont("仿宋", 15))
+        self.medit = QTextEdit()
+        self.medit.setText("9")
+        self.medit.setFont(QFont("仿宋", 12))
+        self.medit.setFixedSize(50, 30)
 
-        self.totimelabel = QLabel()
-        self.totimelabel.setText("结束时间")
-        self.totimelabel.setFont(QFont("仿宋", 15))
-        self.totimeedit = QDateEdit()
-        dateto = datetime.strptime("2019-12-31", "%Y-%m-%d").date()
-        self.totimeedit.setDate(dateto)
-        self.totimeedit.setFont(QFont("仿宋", 12))
-        self.totimeedit.setFixedSize(200,30)
+        self.ckfromtimelabel = QLabel()
+        self.ckfromtimelabel.setText("窗口开始时间")
+        self.ckfromtimelabel.setFont(QFont("仿宋", 15))
+        self.ckfromtimeedit = QDateEdit()
+        datefrom = datetime.strptime("2018-09-01", "%Y-%m-%d").date()
+        self.ckfromtimeedit.setDate(datefrom)
+        self.ckfromtimeedit.setFont(QFont("仿宋", 12))
+        self.ckfromtimeedit.setFixedSize(200,30)
+
+        self.cktotimelabel = QLabel()
+        self.cktotimelabel.setText("窗口结束时间")
+        self.cktotimelabel.setFont(QFont("仿宋", 15))
+        self.cktotimeedit = QDateEdit()
+        dateto = datetime.strptime("2019-05-20", "%Y-%m-%d").date()
+        self.cktotimeedit.setDate(dateto)
+        self.cktotimeedit.setFont(QFont("仿宋", 12))
+        self.cktotimeedit.setFixedSize(200,30)
+
+        self.ycfromtimelabel = QLabel()
+        self.ycfromtimelabel.setText("预测开始时间")
+        self.ycfromtimelabel.setFont(QFont("仿宋", 15))
+        self.ycfromtimeedit = QDateEdit()
+        datefrom = datetime.strptime("2019-01-01", "%Y-%m-%d").date()
+        self.ycfromtimeedit.setDate(datefrom)
+        self.ycfromtimeedit.setFont(QFont("仿宋", 12))
+        self.ycfromtimeedit.setFixedSize(200, 30)
+
+        self.yctotimelabel = QLabel()
+        self.yctotimelabel.setText("预测结束时间")
+        self.yctotimelabel.setFont(QFont("仿宋", 15))
+        self.yctotimeedit = QDateEdit()
+        dateto = datetime.strptime("2019-05-01", "%Y-%m-%d").date()
+        self.yctotimeedit.setDate(dateto)
+        self.yctotimeedit.setFont(QFont("仿宋", 12))
+        self.yctotimeedit.setFixedSize(200, 30)
 
         self.cashlabel = QLabel()
         self.cashlabel.setText("初始资金")
@@ -72,7 +112,7 @@ class RandomBackTest(QDialog):
         self.amountlabel.setText("单笔交易股数")
         self.amountlabel.setFont(QFont("仿宋", 15))
         self.amountedit = QTextEdit()
-        self.amountedit.setText("1000")
+        self.amountedit.setText("3000")
         self.amountedit.setFont(QFont("仿宋", 12))
         self.amountedit.setFixedSize(200,30)
 
@@ -94,12 +134,25 @@ class RandomBackTest(QDialog):
         self.h11box.addWidget(self.poolclbtn)
         self.h12box = QHBoxLayout()
         self.h12box.addWidget(self.pooltb)
+        self.h13box = QHBoxLayout()
+        self.h13box.addStretch(1)
+        self.h13box.addWidget(self.shortlabel)
+        self.h13box.addWidget(self.shortedit)
+        self.h13box.addStretch(1)
+        self.h13box.addWidget(self.longlabel)
+        self.h13box.addWidget(self.longedit)
+        self.h13box.addStretch(1)
+        self.h13box.addWidget(self.mlabel)
+        self.h13box.addWidget(self.medit)
+        self.h13box.addStretch(1)
 
         self.v1box = QVBoxLayout()
         self.v1box.addStretch(1)
         self.v1box.addWidget(self.poollabel)
         self.v1box.addLayout(self.h11box)
         self.v1box.addLayout(self.h12box)
+        self.v1box.addStretch(1)
+        self.v1box.addLayout(self.h13box)
         self.v1box.addStretch(1)
 
         self.h21box = QHBoxLayout()
@@ -108,11 +161,17 @@ class RandomBackTest(QDialog):
 
         self.v2box = QVBoxLayout()
         self.v2box.addStretch(1)
-        self.v2box.addWidget(self.fromtimelabel)
-        self.v2box.addWidget(self.fromtimeedit)
+        self.v2box.addWidget(self.ckfromtimelabel)
+        self.v2box.addWidget(self.ckfromtimeedit)
         self.v2box.addStretch(1)
-        self.v2box.addWidget(self.totimelabel)
-        self.v2box.addWidget(self.totimeedit)
+        self.v2box.addWidget(self.cktotimelabel)
+        self.v2box.addWidget(self.cktotimeedit)
+        self.v2box.addStretch(1)
+        self.v2box.addWidget(self.ycfromtimelabel)
+        self.v2box.addWidget(self.ycfromtimeedit)
+        self.v2box.addStretch(1)
+        self.v2box.addWidget(self.yctotimelabel)
+        self.v2box.addWidget(self.yctotimeedit)
         self.v2box.addStretch(1)
         self.v2box.addWidget(self.cashlabel)
         self.v2box.addWidget(self.cashedit)
@@ -124,8 +183,11 @@ class RandomBackTest(QDialog):
         self.v2box.addStretch(1)
 
         self.hbox = QHBoxLayout()
+        self.hbox.addStretch(1)
         self.hbox.addLayout(self.v1box)
+        self.hbox.addStretch(1)
         self.hbox.addLayout(self.v2box)
+        self.hbox.addStretch(1)
 
         self.setLayout(self.hbox)
         self.pooltb.setPlainText(' '.join(self.codepool))
@@ -156,9 +218,12 @@ class RandomBackTest(QDialog):
                 l[2] = "0" + l[2]
             return ("-".join(l))
 
-        r = RBTest(cash=int(self.cashedit.toPlainText()))
-        r.simple_backtest(self.codepool,change_name(self.fromtimeedit.text()),
-                          change_name(self.totimeedit.text()),int(self.amountedit.toPlainText()))
+        r = MACDTest(cash=int(self.cashedit.toPlainText()))
+        r.MACD_backtest(code=self.codepool,ckstart=change_name(self.ckfromtimeedit.text()),
+                          ckend=change_name(self.cktotimeedit.text()),ycstart=change_name(self.ycfromtimeedit.text()),
+                        ycend=change_name(self.yctotimeedit.text()), amount=int(self.amountedit.toPlainText()),
+                        SHORT=int(self.shortedit.toPlainText()), LONG=int(self.longedit.toPlainText()),
+                        M=int(self.medit.toPlainText()))
         r.save_to_mongo()
         # self.resultbtn.clicked.connect(self.btResult(r.ACstr))
         # self.resultbtn.setEnabled(True)
@@ -174,6 +239,6 @@ class RandomBackTest(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    rbtwindow = RandomBackTest()
-    rbtwindow.show()
+    macdbtwindow = MACDBackTest()
+    macdbtwindow.show()
     sys.exit(app.exec_())
