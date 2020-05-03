@@ -6,20 +6,20 @@ import qdarkstyle
 from PyQt5.QtGui import QIcon, QFont
 from datetime import datetime
 from fetch_data import FETCH
-from strategies.MACDJCSC_backtest import MACDTest
+from strategies.RSIN_backtest import RSINtest
 from templates.BackTestResult import BackTestResult
 from PyQt5.QtCore import Qt
 
 
-class MACDBackTest(QDialog):
+class RSINBackTest(QDialog):
     def __init__(self):
-        super(MACDBackTest,self).__init__()
+        super(RSINBackTest,self).__init__()
         self.codepool = ["000001","000002","000004",]
         self.initUI()
 
     def initUI(self):
         self.resize(900,600)
-        self.setWindowTitle("QUANT XH 金融终端——MACD金叉死叉回测")
+        self.setWindowTitle("QUANT XH 金融终端——RSI N日回测")
         self.setWindowIcon(QIcon("static/icon.png"))
 
         self.poollabel = QLabel()
@@ -42,33 +42,18 @@ class MACDBackTest(QDialog):
         self.pooltb.setFixedSize(300, 300)
         self.pooltb.setFont(QFont("仿宋", 12))
 
-        self.shortlabel = QLabel()
-        self.shortlabel.setText("SHORT")
-        self.shortlabel.setFont(QFont("仿宋", 15))
-        self.shortedit = QTextEdit()
-        self.shortedit.setText("12")
-        self.shortedit.setFont(QFont("仿宋", 12))
-        self.shortedit.setFixedSize(50, 30)
-        self.longlabel = QLabel()
-        self.longlabel.setText("LONG")
-        self.longlabel.setFont(QFont("仿宋", 15))
-        self.longedit = QTextEdit()
-        self.longedit.setText("26")
-        self.longedit.setFont(QFont("仿宋", 12))
-        self.longedit.setFixedSize(50, 30)
-        self.mlabel = QLabel()
-        self.mlabel.setText("M")
-        self.mlabel.setFont(QFont("仿宋", 15))
-        self.medit = QTextEdit()
-        self.medit.setText("9")
-        self.medit.setFont(QFont("仿宋", 12))
-        self.medit.setFixedSize(50, 30)
+        self.nlabel = QLabel()
+        self.nlabel.setText("N:")
+        self.nlabel.setFont(QFont("仿宋", 15))
+        self.nedit = QTextEdit()
+        self.nedit.setText("6")
+        self.nedit.setFont(QFont("仿宋", 12))
+        self.nedit.setFixedSize(50, 30)
 
         self.texttb = QTextBrowser()
         self.texttb.setFont(QFont("仿宋", 10))
         self.texttb.setFixedSize(300, 150)
-        self.texttb.setText("当DIFF和DEA均为正值，DIFF线向上突破DEA线，在0轴上方形成金叉，表示市场上买盘非常踊跃，上涨行情仍将继续。\n\n"
-                            "当DIFF和DEA均为负值，DIFF线向上突破DEA线，在0轴下方形成金叉表示市场上的做空气氛有所缓解，股价可能止跌反弹。")
+        self.texttb.setText("RSI指标分为三个数值：20、50、80，其中，当指标运行到20下方时，预示价格进入超卖区域，短期警示风险来临，不可追空，价格可能出现反弹或上涨；当指标运行到80上方时，预示价格进入超买区域，短线百警示风险来临，不可追多，价格可能出现调整或下跌")
 
         self.ckfromtimelabel = QLabel()
         self.ckfromtimelabel.setText("窗口开始时间")
@@ -140,17 +125,6 @@ class MACDBackTest(QDialog):
         self.h11box.addWidget(self.poolclbtn)
         self.h12box = QHBoxLayout()
         self.h12box.addWidget(self.pooltb)
-        self.h13box = QHBoxLayout()
-        self.h13box.addStretch(1)
-        self.h13box.addWidget(self.shortlabel)
-        self.h13box.addWidget(self.shortedit)
-        self.h13box.addStretch(1)
-        self.h13box.addWidget(self.longlabel)
-        self.h13box.addWidget(self.longedit)
-        self.h13box.addStretch(1)
-        self.h13box.addWidget(self.mlabel)
-        self.h13box.addWidget(self.medit)
-        self.h13box.addStretch(1)
         self.h14box = QHBoxLayout()
         self.h14box.addStretch(1)
         self.h14box.addWidget(self.texttb)
@@ -162,16 +136,21 @@ class MACDBackTest(QDialog):
         self.v1box.addLayout(self.h11box)
         self.v1box.addLayout(self.h12box)
         self.v1box.addStretch(1)
-        self.v1box.addLayout(self.h13box)
-        self.v1box.addStretch(1)
         self.v1box.addLayout(self.h14box)
         self.v1box.addStretch(1)
 
         self.h21box = QHBoxLayout()
         self.h21box.addWidget(self.selectbtn)
         # self.h21box.addWidget(self.resultbtn)
+        self.h22box = QHBoxLayout()
+        self.h22box.addStretch(1)
+        self.h22box.addWidget(self.nlabel)
+        self.h22box.addWidget(self.nedit)
+        self.h22box.addStretch(1)
 
         self.v2box = QVBoxLayout()
+        self.v2box.addStretch(1)
+        self.v2box.addLayout(self.h22box)
         self.v2box.addStretch(1)
         self.v2box.addWidget(self.ckfromtimelabel)
         self.v2box.addWidget(self.ckfromtimeedit)
@@ -230,12 +209,11 @@ class MACDBackTest(QDialog):
                 l[2] = "0" + l[2]
             return ("-".join(l))
 
-        r = MACDTest(cash=int(self.cashedit.toPlainText()))
-        r.MACD_backtest(code=self.codepool,ckstart=change_name(self.ckfromtimeedit.text()),
+        r = RSINtest(cash=int(self.cashedit.toPlainText()))
+        r.RSIN_backtest(code=self.codepool,ckstart=change_name(self.ckfromtimeedit.text()),
                           ckend=change_name(self.cktotimeedit.text()),ycstart=change_name(self.ycfromtimeedit.text()),
                         ycend=change_name(self.yctotimeedit.text()), amount=int(self.amountedit.toPlainText()),
-                        SHORT=int(self.shortedit.toPlainText()), LONG=int(self.longedit.toPlainText()),
-                        M=int(self.medit.toPlainText()))
+                        N=int(self.nedit.toPlainText()))
         r.save_to_mongo()
         # self.resultbtn.clicked.connect(self.btResult(r.ACstr))
         # self.resultbtn.setEnabled(True)
@@ -251,6 +229,6 @@ class MACDBackTest(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    macdbtwindow = MACDBackTest()
-    macdbtwindow.show()
+    rsinbtwindow = RSINBackTest()
+    rsinbtwindow.show()
     sys.exit(app.exec_())
