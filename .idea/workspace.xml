@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/templates/MainBackTest.py" description="from templates.RSINBackTest import RSINBackTest" line="11" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="675fd138-69b3-414d-a685-4f6dd1df98d4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/strategies/RSIN_backtest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/RSINBackTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strategies/CCIN_backtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strategies/KDJ_backtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strategies/RSIJCSC_backtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/CCINBackTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/KDJBackTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/RSIJCSCBackTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/MACDBackTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/MACDBackTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strategies/RSIN_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/strategies/RSIN_backtest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/MainBackTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/MainBackTest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,23 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MACDBackTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/MACDBackTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1083">
-              <caret line="57" column="42" lean-forward="true" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RSINBackTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/RSINBackTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-985">
-              <caret line="55" column="59" lean-forward="true" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+            <state relative-caret-position="208">
+              <caret line="200" lean-forward="true" selection-end-line="234" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -41,20 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5104">
-              <caret line="309" column="22" selection-start-line="309" selection-start-column="22" selection-end-line="309" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BackTestViewer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BackTestViewer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="385">
+              <caret line="220" column="22" lean-forward="true" selection-start-line="220" selection-start-column="22" selection-end-line="220" selection-end-column="22" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -62,11 +48,80 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RSIN_backtest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/strategies/RSIN_backtest.py">
+      <file leaf-file-name="KDJ_backtest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strategies/KDJ_backtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+            <state relative-caret-position="260">
+              <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainBackTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="60" column="44" lean-forward="true" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KDJBackTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/KDJBackTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="233" column="50" lean-forward="true" selection-start-line="233" selection-start-column="50" selection-end-line="233" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RSIJCSCBackTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/RSIJCSCBackTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="761">
+              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCIN_backtest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strategies/CCIN_backtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_backtest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strategies/random_backtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1272">
+              <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MACDJCSC_backtest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strategies/MACDJCSC_backtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1051">
+              <caret line="29" column="43" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="43" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -77,47 +132,8 @@
       <file leaf-file-name="indicators.py" pinned="false" current-in-tab="false">
         <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/indicators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="302" column="23" lean-forward="true" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ops.py" pinned="false" current-in-tab="false">
-        <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/ops.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="213" selection-start-line="213" selection-end-line="213" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generic.py" pinned="false" current-in-tab="false">
-        <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/generic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="5066" selection-start-line="5066" selection-end-line="5066" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="random_backtest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strategies/random_backtest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MACDJCSC_backtest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strategies/MACDJCSC_backtest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="181">
+              <caret line="215" column="4" lean-forward="true" selection-start-line="215" selection-start-column="4" selection-end-line="224" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -133,8 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>plotsin</find>
-      <find>authority</find>
       <find>Ui_Dialog</find>
       <find>titlelabel</find>
       <find>MyFigure</find>
@@ -145,7 +159,7 @@
       <find>totalP</find>
       <find>totalPage</find>
       <find>queryModel</find>
-      <find />
+      <find>self.currentPageLabel.setText(&quot;当前页数：&quot; + str(self.currentPage))</find>
       <find>totalRecord</find>
       <find>page</find>
       <find>pageLabel</find>
@@ -163,6 +177,8 @@
       <find>amount</find>
       <find>MACD_JCSC</find>
       <find>RSI1</find>
+      <find>BackTestResult</find>
+      <find>KDJbtn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,18 +218,25 @@
         <option value="$PROJECT_DIR$/templates/BackTestViewer.py" />
         <option value="$PROJECT_DIR$/templates/UserHome.py" />
         <option value="$PROJECT_DIR$/MACDJCSC_backtest.py" />
-        <option value="$PROJECT_DIR$/templates/MainBackTest.py" />
         <option value="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" />
         <option value="$PROJECT_DIR$/templates/MACDBackTest.py" />
         <option value="$PROJECT_DIR$/templates/RSINBackTest.py" />
+        <option value="$PROJECT_DIR$/templates/CCINBackTest.py" />
+        <option value="$PROJECT_DIR$/strategies/CCIN_backtest.py" />
         <option value="$PROJECT_DIR$/strategies/RSIN_backtest.py" />
+        <option value="$PROJECT_DIR$/strategies/RSIJCSC_backtest.py" />
+        <option value="$PROJECT_DIR$/strategies/KDJ_backtest.py" />
+        <option value="$PROJECT_DIR$/templates/RSIJCSCBackTest.py" />
+        <option value="$PROJECT_DIR$/templates/KDJBackTest.py" />
+        <option value="$PROJECT_DIR$/templates/MainBackTest.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="50" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="40" />
+    <option name="y" value="186" />
     <option name="width" value="1395" />
-    <option name="height" value="834" />
+    <option name="height" value="835" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -251,6 +274,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="RSI&#9;FILE&#9;file://F:/寒假学习/quantXH/strategies/RSIN_backtest.py" />
     <property name="last_opened_file_path" value="H:/quantaxis" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -297,7 +321,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="MACDBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="KDJBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -309,13 +333,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/MACDBackTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/KDJBackTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="MACDJCSC_backtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="KDJ_backtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,13 +351,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategies/MACDJCSC_backtest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategies/KDJ_backtest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="RSINBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MainBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -345,13 +369,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/RSINBackTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/MainBackTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="RSIN_backtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="RSIJCSCBackTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -359,30 +383,30 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/strategies" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/templates" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/strategies/RSIN_backtest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/templates/RSIJCSCBackTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.MACDJCSC_backtest" />
-      <item itemvalue="Python.MACDBackTest" />
-      <item itemvalue="Python.RSIN_backtest" />
-      <item itemvalue="Python.RSINBackTest" />
+      <item itemvalue="Python.RSIJCSCBackTest" />
+      <item itemvalue="Python.KDJ_backtest" />
+      <item itemvalue="Python.KDJBackTest" />
+      <item itemvalue="Python.MainBackTest" />
       <item itemvalue="Python.BackTestViewer" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.BackTestViewer" />
-        <item itemvalue="Python.RSIN_backtest" />
-        <item itemvalue="Python.RSINBackTest" />
-        <item itemvalue="Python.MACDBackTest" />
-        <item itemvalue="Python.MACDJCSC_backtest" />
+        <item itemvalue="Python.KDJBackTest" />
+        <item itemvalue="Python.KDJ_backtest" />
+        <item itemvalue="Python.MainBackTest" />
+        <item itemvalue="Python.RSIJCSCBackTest" />
       </list>
     </recent_temporary>
   </component>
@@ -442,18 +466,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13936591" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18361954" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294964" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502045" side_tool="true" weight="0.3364632" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3294964" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3294964" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49795502" visible="true" weight="0.30813125" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49795502" weight="0.23252496" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32707354" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31768388" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.31669044" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -479,53 +502,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://G:/Anaconda3/Lib/site-packages/tushare/util/dateu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2025" />
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QASU/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QASU/save_tushare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3154">
-          <caret line="192" column="26" selection-start-line="192" selection-start-column="26" selection-end-line="192" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAFetch/QATushare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="180" column="24" selection-start-line="180" selection-start-column="24" selection-end-line="180" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/tushare/stock/fundamental.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/matplotlib/finance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13262">
-          <caret line="719" column="35" selection-start-line="719" selection-start-column="35" selection-end-line="719" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1697677539/PyQt5/QtCore/QDate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="153" column="8" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1697677539/PyQt5/QtWidgets/QTextEdit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10621">
@@ -694,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/StockViewer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="197" column="33" lean-forward="true" selection-start-line="197" selection-start-column="33" selection-end-line="197" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/UpdateData.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -739,10 +708,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
+    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAMarket/QABacktestBroker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="247">
+          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95323">
+          <caret line="5066" selection-start-line="5066" selection-end-line="5066" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3477">
+          <caret line="213" selection-start-line="213" selection-end-line="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/MACDBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -756,97 +746,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strategies/random_backtest.py">
+    <entry file="file://$PROJECT_DIR$/templates/StockViewer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        <state relative-caret-position="-209">
+          <caret line="197" column="33" selection-start-line="197" selection-start-column="33" selection-end-line="197" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAMarket/QABacktestBroker.py">
+    <entry file="file://$PROJECT_DIR$/templates/CCINBackTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="5066" selection-start-line="5066" selection-end-line="5066" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/pandas/core/ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="213" selection-start-line="213" selection-end-line="213" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5104">
-          <caret line="309" column="22" selection-start-line="309" selection-start-column="22" selection-end-line="309" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/RSINBackTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-985">
-          <caret line="55" column="59" lean-forward="true" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+        <state relative-caret-position="95">
+          <caret line="224" column="20" selection-start-line="224" selection-start-column="20" selection-end-line="224" selection-end-column="20" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strategies/MACDJCSC_backtest.py">
+    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="43" />
+        <state relative-caret-position="106">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/talib/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/talib_series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="170" column="24" lean-forward="true" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/RSIN_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="30" lean-forward="true" selection-end-line="101" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/MACDBackTest.py">
+    <entry file="file://$PROJECT_DIR$/strategies/RSIJCSC_backtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="57" column="42" lean-forward="true" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+        <state relative-caret-position="450">
+          <caret line="98" column="52" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="52" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://G:/Anaconda3/Lib/site-packages/QUANTAXIS/QAIndicator/indicators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="302" column="23" lean-forward="true" selection-start-line="302" selection-start-column="11" selection-end-line="302" selection-end-column="23" />
+        <state relative-caret-position="181">
+          <caret line="215" column="4" lean-forward="true" selection-start-line="215" selection-start-column="4" selection-end-line="224" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
+    <entry file="file://$PROJECT_DIR$/strategies/random_backtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="1272">
+          <caret line="76" column="35" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/MACDJCSC_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1051">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/CCIN_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/RSINBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="200" lean-forward="true" selection-end-line="234" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strategies/RSIN_backtest.py">
+    <entry file="file://$PROJECT_DIR$/templates/RSIJCSCBackTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="761">
+          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/MainBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="60" column="44" lean-forward="true" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strategies/KDJ_backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/KDJBackTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="233" column="50" lean-forward="true" selection-start-line="233" selection-start-column="50" selection-end-line="233" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/BackTestViewer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="220" column="22" lean-forward="true" selection-start-line="220" selection-start-column="22" selection-end-line="220" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

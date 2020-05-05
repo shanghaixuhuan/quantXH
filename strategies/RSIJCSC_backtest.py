@@ -5,7 +5,7 @@ import pandas as pd
 from QUANTAXIS.QAIndicator import base
 
 
-class RSINtest:
+class RSIJCSCtest:
     def __init__(self, cash):
         time = datetime.now().strftime("%Y%m%d%H%M%S")
         self.cash = cash
@@ -15,27 +15,26 @@ class RSINtest:
         self.ACstr = 'a'+ time
         self.AC = self.Portfolio.new_account(account_cookie=self.ACstr, init_cash=cash)
 
-    def RSIN_backtest(self,code,ckstart,ckend,ycstart,ycend,amount,N):
+    def RSIJCSC_backtest(self,code,ckstart,ckend,ycstart,ycend,amount,Nshort,Nlong):
         self.code = code
         self.ckstart = ckstart
         self.ckend = ckend
         self.ycstart = ycstart
         self.ycend = ycend
         self.amount = amount
-        self.N = N
+        self.Nshort = Nshort
+        self.Nlong = Nlong
         data = QA.QA_fetch_stock_day_adv(code, ckstart, ckend).to_qfq()
         ind = {}
         for i in code:
-            ind[i] = self.RSIN(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),N)
-            # ind[i] = QA.QA_indicator_RSI(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),6,12,24)
+            ind[i] = self.RSIJCSC(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(), Nshort, Nlong)
+
+        print(ind)
         data_forbacktest = data.select_time(ycstart, ycend)
-        rsi = dict(zip(code,[None for _ in range(len(code))]))
         for items in data_forbacktest.panel_gen:
             for item in items.security_gen:
                 daily_ind = ind[item.code[0]].loc[item.index]
-                if rsi[item.code[0]] is None:
-                    pass
-                elif daily_ind.RSI.iloc[0] >= 20 and rsi[item.code[0]] < 20:
+                if daily_ind.JC.iloc[0] == 1:
                     order = self.AC.send_order(
                         code=item.code[0],
                         time=item.date[0],
@@ -50,7 +49,7 @@ class RSINtest:
                     res = trade_mes.loc[order.account_cookie, order.realorder_id]
                     order.trade(res.trade_id, res.trade_price,
                                 res.trade_amount, res.trade_time)
-                elif daily_ind.RSI.iloc[0] <= 80 and rsi[item.code[0]] > 80:
+                elif daily_ind.SC.iloc[0] == 1:
                     if self.AC.sell_available.get(item.code[0], 0) > 0:
                         order = self.AC.send_order(
                             code=item.code[0],
@@ -67,7 +66,6 @@ class RSINtest:
                             self.AC.account_cookie, 'filled')
                         res = trade_mes.loc[order.account_cookie, order.realorder_id]
                         order.trade(res.trade_id, res.trade_price, res.trade_amount, res.trade_time)
-                rsi[item.code[0]] = daily_ind.RSI.iloc[0]
             self.AC.settle()
 
     def save_to_mongo(self):
@@ -77,25 +75,29 @@ class RSINtest:
         risk = QA.QA_Risk(self.AC)
         risk.save()
         init_coditions = {"cash":self.cash,"code":self.code,"ckstarttime":self.ckstart,"ckendtime":self.ckend,
-                          "ycstarttime":self.ycstart,"ycendtime":self.ycend, "amount":self.amount, "N":self.N,}
-        self.db["init"].insert({"ac_id":self.ACstr, "type":"RSI N日回测",
+                          "ycstarttime":self.ycstart,"ycendtime":self.ycend, "amount":self.amount, "Nshort":self.Nshort,
+                          "Nlong": self.Nlong}
+        self.db["init"].insert({"ac_id":self.ACstr, "type":"RSI 金叉死叉回测",
                                 "profit":risk.profit , "init_conditions":init_coditions})
 
-    def RSIN(self, DataFrame, N=6):
+    def RSIJCSC(self, DataFrame, Nshort=6, Nlong=12):
         '相对强弱指标RSI1:SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;'
         CLOSE = DataFrame['close']
         LC = base.REF(CLOSE, 1)
-        RSI = base.SMA(QA.MAX(CLOSE - LC, 0), N) / base.SMA(base.ABS(CLOSE - LC), N) * 100
-        DICT = {'RSI': RSI,}
+        RSIshort = base.SMA(base.MAX(CLOSE - LC, 0), Nshort) / base.SMA(base.ABS(CLOSE - LC), Nshort) * 100
+        RSIlong = base.SMA(base.MAX(CLOSE - LC, 0), Nlong) / base.SMA(base.ABS(CLOSE - LC), Nlong) * 100
+        JC = base.CROSS(RSIshort,RSIlong)
+        SC = base.CROSS(RSIlong,RSIshort)
+        DICT = {'RSIshort': RSIshort, "RSIlong":RSIlong, "JC": JC, "SC": SC}
 
         return pd.DataFrame(DICT)
 
 
 if __name__ == "__main__":
     code = ["000001","000004"]
-    r = RSINtest(cash=10000000)
-    r.RSIN_backtest(code=code,ckstart="2019-01-01",ckend="2019-12-31",ycstart="2019-07-01",ycend="2019-12-31",amount=10000,
-                    N=6)
-    # r.save_to_mongo()
+    r = RSIJCSCtest(cash=10000000)
+    r.RSIJCSC_backtest(code=code,ckstart="2019-01-01",ckend="2019-12-31",ycstart="2019-07-01",ycend="2019-12-31",amount=10000,
+                    Nshort=6, Nlong=12)
+    r.save_to_mongo()
 
 

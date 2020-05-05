@@ -3,9 +3,10 @@ from datetime import datetime
 from pymongo import MongoClient
 import pandas as pd
 from QUANTAXIS.QAIndicator import base
+import time
 
 
-class RSINtest:
+class KDJtest:
     def __init__(self, cash):
         time = datetime.now().strftime("%Y%m%d%H%M%S")
         self.cash = cash
@@ -15,7 +16,7 @@ class RSINtest:
         self.ACstr = 'a'+ time
         self.AC = self.Portfolio.new_account(account_cookie=self.ACstr, init_cash=cash)
 
-    def RSIN_backtest(self,code,ckstart,ckend,ycstart,ycend,amount,N):
+    def KDJ_backtest(self,code,ckstart,ckend,ycstart,ycend,amount,N,M1,M2):
         self.code = code
         self.ckstart = ckstart
         self.ckend = ckend
@@ -23,19 +24,18 @@ class RSINtest:
         self.ycend = ycend
         self.amount = amount
         self.N = N
+        self.M1 = M1
+        self.M2 = M2
         data = QA.QA_fetch_stock_day_adv(code, ckstart, ckend).to_qfq()
         ind = {}
         for i in code:
-            ind[i] = self.RSIN(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),N)
-            # ind[i] = QA.QA_indicator_RSI(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),6,12,24)
-        data_forbacktest = data.select_time(ycstart, ycend)
-        rsi = dict(zip(code,[None for _ in range(len(code))]))
+            ind[i] = self.KDJ(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),N,M1,M2)
+            # ind[i] = QA.QA_indicator_KDJ(QA.QA_fetch_stock_day_adv(i, ckstart, ckend).to_qfq(),N,M1,M2)
+        data_forbacktest = data.select_time(ycstart,ycend)
         for items in data_forbacktest.panel_gen:
             for item in items.security_gen:
                 daily_ind = ind[item.code[0]].loc[item.index]
-                if rsi[item.code[0]] is None:
-                    pass
-                elif daily_ind.RSI.iloc[0] >= 20 and rsi[item.code[0]] < 20:
+                if daily_ind.KDJ_K.iloc[0] < 20 and daily_ind.KDJ_D.iloc[0] < 20 and daily_ind.KDJ_J.iloc[0] < 20:
                     order = self.AC.send_order(
                         code=item.code[0],
                         time=item.date[0],
@@ -50,7 +50,7 @@ class RSINtest:
                     res = trade_mes.loc[order.account_cookie, order.realorder_id]
                     order.trade(res.trade_id, res.trade_price,
                                 res.trade_amount, res.trade_time)
-                elif daily_ind.RSI.iloc[0] <= 80 and rsi[item.code[0]] > 80:
+                elif daily_ind.KDJ_K.iloc[0] > 80 and daily_ind.KDJ_D.iloc[0] > 80 and daily_ind.KDJ_J.iloc[0] > 80:
                     if self.AC.sell_available.get(item.code[0], 0) > 0:
                         order = self.AC.send_order(
                             code=item.code[0],
@@ -67,7 +67,6 @@ class RSINtest:
                             self.AC.account_cookie, 'filled')
                         res = trade_mes.loc[order.account_cookie, order.realorder_id]
                         order.trade(res.trade_id, res.trade_price, res.trade_amount, res.trade_time)
-                rsi[item.code[0]] = daily_ind.RSI.iloc[0]
             self.AC.settle()
 
     def save_to_mongo(self):
@@ -76,26 +75,29 @@ class RSINtest:
         self.AC.save()
         risk = QA.QA_Risk(self.AC)
         risk.save()
-        init_coditions = {"cash":self.cash,"code":self.code,"ckstarttime":self.ckstart,"ckendtime":self.ckend,
-                          "ycstarttime":self.ycstart,"ycendtime":self.ycend, "amount":self.amount, "N":self.N,}
-        self.db["init"].insert({"ac_id":self.ACstr, "type":"RSI N日回测",
+        init_coditions = {"cash":self.cash,"code":self.code,"ycstarttime":self.ycstart,"ycendtime":self.ycend, "amount":self.amount, "N":self.N,
+                          "M1":self.M1, "M2":self.M2}
+        self.db["init"].insert({"ac_id":self.ACstr, "type":"KDJ指标回测",
                                 "profit":risk.profit , "init_conditions":init_coditions})
 
-    def RSIN(self, DataFrame, N=6):
-        '相对强弱指标RSI1:SMA(MAX(CLOSE-LC,0),N1,1)/SMA(ABS(CLOSE-LC),N1,1)*100;'
-        CLOSE = DataFrame['close']
-        LC = base.REF(CLOSE, 1)
-        RSI = base.SMA(QA.MAX(CLOSE - LC, 0), N) / base.SMA(base.ABS(CLOSE - LC), N) * 100
-        DICT = {'RSI': RSI,}
+    def KDJ(self, DataFrame, N=9, M1=3, M2=3):
+        C = DataFrame['close']
+        H = DataFrame['high']
+        L = DataFrame['low']
 
+        RSV = (C - base.LLV(L, N)) / (base.HHV(H, N) - base.LLV(L, N)) * 100
+        K = base.SMA(RSV, M1)
+        D = base.SMA(K, M2)
+        J = 3 * K - 2 * D
+        DICT = {'KDJ_K': K, 'KDJ_D': D, 'KDJ_J': J}
         return pd.DataFrame(DICT)
 
 
 if __name__ == "__main__":
     code = ["000001","000004"]
-    r = RSINtest(cash=10000000)
-    r.RSIN_backtest(code=code,ckstart="2019-01-01",ckend="2019-12-31",ycstart="2019-07-01",ycend="2019-12-31",amount=10000,
-                    N=6)
-    # r.save_to_mongo()
+    r = KDJtest(cash=10000000)
+    r.KDJ_backtest(code=code,ckstart="2019-01-01",ckend="2019-12-31",ycstart="2019-07-01",ycend="2019-12-31",amount=10000,
+                    N=9,M1=3,M2=3)
+    r.save_to_mongo()
 
 
