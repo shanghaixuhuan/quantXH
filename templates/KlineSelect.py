@@ -40,7 +40,7 @@ class KlineSelect(QDialog):
         self.fromtimeedit.setDate(datefrom)
 
         self.totimelabel = QLabel()
-        self.totimelabel.setText("起始时间")
+        self.totimelabel.setText("终止时间")
         self.totimelabel.setFont(QFont("仿宋", 12))
         self.totimeedit = QDateEdit()
         self.totimeedit.setFixedSize(150, 25)

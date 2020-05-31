@@ -18,7 +18,7 @@ class MyFigure(FigureCanvas):
 
 
 class KlinesDialog(QDialog):
-    def __init__(self, type="index", code="000001", fromtime="2020-01-01", totime="2020-03-01"):
+    def __init__(self, type="index", code="000001", fromtime="2020-02-01", totime="2020-05-07"):
         super(KlinesDialog,self).__init__()
         self.type = type
         self.code = code
@@ -58,6 +58,6 @@ class KlinesDialog(QDialog):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
-    klinesWindow = KlinesDialog(type="A", code="000001", fromtime="2020-01-01", totime="2020-03-01")
+    klinesWindow = KlinesDialog(type="A", code="000001", fromtime="2020-01-01", totime="2020-05-07")
     klinesWindow.show()
     sys.exit(app.exec_())
