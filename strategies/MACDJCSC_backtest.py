@@ -2,6 +2,7 @@ import QUANTAXIS as QA
 from datetime import datetime
 from pymongo import MongoClient
 import pandas as pd
+import time
 
 
 class MACDTest:

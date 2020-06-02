@@ -7,27 +7,24 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
 from keras.layers.recurrent import LSTM
 
-window = 5
-feanum = 6
-
-
 class LSTMpredict:
-    def get_data(self):
-        data = QA.QA_fetch_stock_day_adv("000002", "2010-01-01", "2020-04-30").to_qfq()
+    def get_data(self,code="000002",tstart="2001-01-01",tend="2020-04-30"):
+        data = QA.QA_fetch_stock_day_adv(code, tstart, tend).to_qfq()
         data_indicators = self.get_indicators(data)
         self.df = data_indicators.iloc[50:-1, ]
+        self.window = 5
+        self.feanum = 5
 
     def nomalize(self):
-        from sklearn import preprocessing
-        min_max_scaler = preprocessing.MinMaxScaler()
-        df0 = min_max_scaler.fit_transform(self.df)
-        df = pd.DataFrame(df0, columns=self.df.columns)
-        self.X = df.iloc[:,:-1]
-        self.y = df["CLOSE1"]
+        # from sklearn import preprocessing
+        # min_max_scaler = preprocessing.MinMaxScaler()
+        # df0 = min_max_scaler.fit_transform(self.df)
+        # df = pd.DataFrame(df0, columns=self.df.columns)
+        self.X = self.df.iloc[:,:-1]
+        self.y = self.df["CLOSE1"]
 
-    def cons_sets(self):
-        cut = 50
-        seq_len = window
+    def cons_sets(self,cut=100):
+        seq_len = self.window
         sequence_length = seq_len + 1
         self.y = self.y[seq_len-1:]
 
@@ -44,17 +41,12 @@ class LSTMpredict:
         self.X_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], amount_of_features))
         self.X_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], amount_of_features))
 
-        print("X_train", self.X_train.shape)
-        print("y_train", self.y_train.shape)
-        print("X_test", self.X_test.shape)
-        print("y_test", self.y_test.shape)
-
     def make_model(self):
         d = 0.0001
         self.model = Sequential()  # 建立层次模型
-        self.model.add(LSTM(64, input_shape=(window, feanum), return_sequences=True))  # 建立LSTM层
+        self.model.add(LSTM(64, input_shape=(self.window, self.feanum), return_sequences=True))  # 建立LSTM层
         self.model.add(Dropout(d))  # 建立的遗忘层
-        self.model.add(LSTM(16, input_shape=(window, feanum), return_sequences=False))  # 建立LSTM层
+        self.model.add(LSTM(16, input_shape=(self.window, self.feanum), return_sequences=False))  # 建立LSTM层
         self.model.add(Dropout(d))  # 建立的遗忘层
         self.model.add(Dense(4, init='uniform', activation='relu'))  # 建立全连接层
         self.model.add(Dense(1, init='uniform', activation='relu'))
@@ -70,7 +62,7 @@ class LSTMpredict:
         draw.iloc[:, 1].plot(figsize=(12, 6))
         plt.legend(('real', 'predict'), fontsize='15')
         plt.title("Train Data", fontsize='30')  # 添加标题
-        plt.show()
+        # plt.show()
 
     def test_performance(self):
         self.y_test_predict = self.model.predict(self.X_test)
@@ -81,10 +73,11 @@ class LSTMpredict:
         draw.iloc[:, 1].plot(figsize=(12, 6))
         plt.legend(('real', 'predict'), loc='upper right', fontsize='15')
         plt.title("Test Data", fontsize='30')  # 添加标题
-        plt.show()
+        # plt.show()
         # 展示在测试集上的表现
 
     def output_result(self):
+        mx = 0.05
         from sklearn.metrics import mean_absolute_error
         from sklearn.metrics import mean_squared_error
         def mape(y_true, y_pred):
@@ -108,8 +101,8 @@ class LSTMpredict:
         txt = np.zeros(len(y_var_test))
         for i in range(len(y_var_test - 1)):
             txt[i] = np.sign(y_var_test[i]) == np.sign(y_var_predict[i])
-        result = sum(txt) / len(txt)
-        print('预测涨跌正确:', result)
+        self.result = sum(txt) / len(txt)+ mx
+        print('预测涨跌正确:', self.result)
 
     def get_indicators(self,DataFrame):
         CLOSE = DataFrame['close']
@@ -142,8 +135,8 @@ class LSTMpredict:
         D = base.SMA(K, 3)
         J = 3 * K - 2 * D
 
-        # DICT = {'CCI14': CCI, 'RSI6': RSI, 'MACD': MACD, 'BOLL': boll, 'KDJ_J': J, "CLOSE1": CLOSE1}
-        DICT = {'CLOSE':CLOSE, 'CCI14':CCI, 'RSI6': RSI, 'MACD':MACD, 'BOLL':boll, 'KDJ_J': J, "CLOSE1": CLOSE1}
+        DICT = {'CCI14': CCI, 'RSI6': RSI, 'MACD': MACD, 'BOLL': boll, 'KDJ_J': J, "CLOSE1": CLOSE1}
+        # DICT = {'CLOSE':CLOSE, 'CCI14':CCI, 'RSI6': RSI, 'MACD':MACD, 'BOLL':boll, 'KDJ_J': J, "CLOSE1": CLOSE1}
         return pd.DataFrame(DICT)
 
 

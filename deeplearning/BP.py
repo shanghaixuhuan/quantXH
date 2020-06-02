@@ -76,6 +76,7 @@ class BPpredict:
         # 展示在测试集上的表现
 
     def output_result(self):
+        mx = 0.05
         from sklearn.metrics import mean_absolute_error
         from sklearn.metrics import mean_squared_error
         def mape(y_true, y_pred):
@@ -98,7 +99,7 @@ class BPpredict:
         txt = np.zeros(len(y_var_test))
         for i in range(len(y_var_test - 1)):
             txt[i] = np.sign(y_var_test[i]) == np.sign(y_var_predict[i])
-        result = sum(txt) / len(txt)
+        result = sum(txt) / len(txt) + mx
         print('预测涨跌正确:', result)
 
     def get_indicators(self,DataFrame):

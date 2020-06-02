@@ -9,6 +9,7 @@ from templates.RSINBackTest import RSINBackTest
 from templates.CCINBackTest import CCINBackTest
 from templates.RSIJCSCBackTest import RSIJCSCBackTest
 from templates.KDJBackTest import KDJBackTest
+from templates.LSTMBacktest import LSTMBacktest
 
 
 class MainBackTest(QDialog):
@@ -61,6 +62,12 @@ class MainBackTest(QDialog):
         self.KDJbtn.setFont(QFont("仿宋", 12))
         self.KDJbtn.clicked.connect(self.KDJBackTestDialog)
 
+        self.BPbtn = QPushButton()
+        self.BPbtn.setText("LSTM预测股价回测")
+        self.BPbtn.setFixedSize(180, 50)
+        self.BPbtn.setFont(QFont("仿宋", 12))
+        self.BPbtn.clicked.connect(self.LSTMBackTestDialog)
+
         self.comingbtn = QPushButton()
         self.comingbtn.setText("敬请期待")
         self.comingbtn.setFixedSize(180, 50)
@@ -79,7 +86,8 @@ class MainBackTest(QDialog):
         self.gridbox.addWidget(self.CCINbtn,1,0)
         self.gridbox.addWidget(self.RSIJCSCbtn,1,1)
         self.gridbox.addWidget(self.KDJbtn, 1, 2)
-        self.gridbox.addWidget(self.comingbtn,2,0)
+        self.gridbox.addWidget(self.BPbtn,2,0)
+        self.gridbox.addWidget(self.comingbtn,2,1)
 
         self.vbox = QVBoxLayout()
         self.vbox.addStretch(1)
@@ -117,6 +125,11 @@ class MainBackTest(QDialog):
 
     def KDJBackTestDialog(self):
         dialog = KDJBackTest()
+        dialog.show()
+        dialog.exec_()
+
+    def LSTMBackTestDialog(self):
+        dialog = LSTMBacktest()
         dialog.show()
         dialog.exec_()
 
