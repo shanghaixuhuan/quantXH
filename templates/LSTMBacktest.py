@@ -252,18 +252,22 @@ class LSTMBacktest(QDialog):
 
     def con_model(self):
         self.tcode = self.tcodeedit.toPlainText()
-        lstm = LSTMpredict()
-        lstm.get_data(self.tcodeedit.toPlainText(), self.change_name(self.tfromtimeedit.text()),
-                      self.change_name(self.ttotimeedit.text()))
-        lstm.nomalize()
-        lstm.cons_sets(cut=99)
-        lstm.make_model()
-        lstm.train_performance()
-        lstm.test_performance()
-        lstm.output_result()
-        self.model = lstm.model
-        self.accnlabel.setText(str(lstm.result * 100)[:4] + "%")
-        self.selectbtn.setEnabled(True)
+        try:
+            lstm = LSTMpredict()
+            lstm.get_data(self.tcodeedit.toPlainText(), self.change_name(self.tfromtimeedit.text()),
+                          self.change_name(self.ttotimeedit.text()))
+            lstm.nomalize()
+            lstm.cons_sets(cut=99)
+            lstm.make_model()
+            lstm.train_performance()
+            lstm.test_performance()
+            lstm.output_result()
+            self.model = lstm.model
+            self.accnlabel.setText(str(lstm.result * 100)[:4] + "%")
+            self.selectbtn.setEnabled(True)
+        except RuntimeError:
+            self.accnlabel.setText("训练出错。")
+
 
     def backTest(self):
         r = LSTMtest(cash=int(self.cashedit.toPlainText()))
